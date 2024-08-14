@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import Player from '../../components/Player';
 import CenteredContainer from '../../components/CenteredContainer';
+import ProtectedRoute from '../../components/ProtectedRoute';
 
 const Search = () => {
     const [username, setUsername] = useState('');
@@ -27,33 +28,35 @@ const Search = () => {
     };
 
     return (
-        <CenteredContainer>
-            <Container>
-                <Row className="justify-content-center">
-                    <Col md={6}>
-                        <h1 className="text-center">Search Fortnite Stats</h1>
-                        <Form>
-                            <Form.Group className="mb-3">
-                                <Form.Control
-                                    type="text"
-                                    value={username}
-                                    onChange={(e) => setUsername(e.target.value)}
-                                    placeholder="Enter Username"
-                                />
-                            </Form.Group>
-                            <Button variant="primary" onClick={handleSearch} className="w-100">Search</Button>
-                        </Form>
-                        {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
-                        {result && (
-                            <div className="mt-4">
-                                <h2 className="text-center">Results:</h2>
-                                <Player data={result.data} />
-                            </div>
-                        )}
-                    </Col>
-                </Row>
-            </Container>
-        </CenteredContainer>
+        <ProtectedRoute>
+            <CenteredContainer>
+                <Container>
+                    <Row className="justify-content-center">
+                        <Col md={6}>
+                            <h1 className="text-center">Search Fortnite Stats</h1>
+                            <Form>
+                                <Form.Group className="mb-3">
+                                    <Form.Control
+                                        type="text"
+                                        value={username}
+                                        onChange={(e) => setUsername(e.target.value)}
+                                        placeholder="Enter Username"
+                                    />
+                                </Form.Group>
+                                <Button variant="primary" onClick={handleSearch} className="w-100">Search</Button>
+                            </Form>
+                            {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
+                            {result && (
+                                <div className="mt-4">
+                                    <h2 className="text-center">Results:</h2>
+                                    <Player data={result.data} />
+                                </div>
+                            )}
+                        </Col>
+                    </Row>
+                </Container>
+            </CenteredContainer>
+        </ProtectedRoute>
     );
 };
 

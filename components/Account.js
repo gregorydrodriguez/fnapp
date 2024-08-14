@@ -1,10 +1,14 @@
 // components/Account.js
 
+import { Card } from 'react-bootstrap';
+
 const Account = ({ account }) => (
-    <div>
-      <h2>{account.name}</h2>
-      <p>ID: {account.id}</p>
-    </div>
+    <Card className="mb-3">
+        <Card.Body>
+            <Card.Title>{account.name}</Card.Title>
+            <Card.Text>ID: {account.id}</Card.Text>
+        </Card.Body>
+    </Card>
 );
 
 export default Account;

@@ -6,9 +6,9 @@ require('dotenv').config();
 
 const mongoDBConnectionString = process.env.MONGODB_URI;
 
-let Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-let userSchema = new Schema({
+const userSchema = new Schema({
     username: {
         type: String,
         unique: true,
@@ -20,18 +20,17 @@ let userSchema = new Schema({
     },
 });
 
-let User;
+const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 module.exports.connect = async function () {
-    try {
-        await mongoose.connect(mongoDBConnectionString);
-
-        const database = mongoose.connection;
-        User = database.model('User', userSchema);
-        console.log('MongoDB connected');
-    } catch (err) {
-        console.error('MongoDB connection error:', err);
-        throw new Error('MongoDB connection failed');
+    if (mongoose.connection.readyState === 0) {
+        try {
+            await mongoose.connect(mongoDBConnectionString);
+            console.log('MongoDB connected');
+        } catch (err) {
+            console.error('MongoDB connection error:', err);
+            throw new Error('MongoDB connection failed');
+        }
     }
 };
 

@@ -1,7 +1,7 @@
 // components/ProtectedRoute.js
 
 import { useAtomValue } from 'jotai';
-import { isAuthenticatedAtom } from '../atoms';
+import { isAuthenticatedAtom } from '@/atoms';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
@@ -10,6 +10,7 @@ const ProtectedRoute = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
+    console.log('isAuthenticated: ', isAuthenticated);
     if (!isAuthenticated) {
       router.push('/login');
     }

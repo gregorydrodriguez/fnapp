@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../styles/Home.module.css';
+import ProtectedRoute from '../../components/ProtectedRoute';
 
 export default function Shop() {
     const [items, setItems] = useState([]);
@@ -32,23 +33,25 @@ export default function Shop() {
     };
 
     return (
-        <div className={styles['shop-container']}>
-            <h2 className={styles['section-title']}>PlayerShop</h2>
-            <div className={styles['items-grid']}>
-                {items.map((item, index) => (
-                    <div key={index} className={styles['item-card']}>
-                        <img src={item.items[0].images.icon} alt={item.items[0].name} className={styles['item-image']} />
-                        <h3 className={styles['item-title']}>{item.items[0].name}</h3>
-                        <p className={styles['item-description']}>{item.items[0].description}</p>
-                        <p className={styles['item-price']}>Cost: {item.regularPrice} V-Bucks</p>
-                        <button 
-                            className={styles['cart-button']} 
-                            onClick={() => addToCart(item)}>
-                            Add to Cart
-                        </button>
-                    </div>
-                ))}
+        <ProtectedRoute>
+            <div className={styles['shop-container']}>
+                <h2 className={styles['section-title']}>PlayerShop</h2>
+                <div className={styles['items-grid']}>
+                    {items.map((item, index) => (
+                        <div key={index} className={styles['item-card']}>
+                            <img src={item.items[0].images.icon} alt={item.items[0].name} className={styles['item-image']} />
+                            <h3 className={styles['item-title']}>{item.items[0].name}</h3>
+                            <p className={styles['item-description']}>{item.items[0].description}</p>
+                            <p className={styles['item-price']}>Cost: {item.regularPrice} V-Bucks</p>
+                            <button
+                                className={styles['cart-button']}
+                                onClick={() => addToCart(item)}>
+                                Add to Cart
+                            </button>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </ProtectedRoute>
     );
 }
