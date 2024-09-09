@@ -22,7 +22,6 @@ export default async function handler(req, res) {
                 return res.status(401).json({ error: 'Username/Password is incorrect' });
             }
             const secret = process.env.JWT_SECRET;
-            console.log('JWT_SECRET: ', secret);
             const token = jwt.sign({ username: user.username, id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
             res.status(200).json({ token, user: { username: user.username, fullName: user.fullName, role: user.role } });

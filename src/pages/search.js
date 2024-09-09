@@ -11,7 +11,8 @@ const Search = () => {
     const [result, setResult] = useState(null);
     const [error, setError] = useState('');
 
-    const handleSearch = async () => {
+    const handleSearch = async (event) => {
+        event.preventDefault();
         try {
             const response = await fetch(`/api/search?username=${username}`);
             if (response.ok) {
@@ -34,7 +35,7 @@ const Search = () => {
                     <Row className="justify-content-center">
                         <Col md={6}>
                             <h1 className="text-center">Search Fortnite Stats</h1>
-                            <Form>
+                            <Form onSubmit={handleSearch}>
                                 <Form.Group className="mb-3">
                                     <Form.Control
                                         type="text"
@@ -43,7 +44,7 @@ const Search = () => {
                                         placeholder="Enter Username"
                                     />
                                 </Form.Group>
-                                <Button variant="primary" onClick={handleSearch} className="w-100">Search</Button>
+                                <Button variant="primary" type="submit" className="w-100">Search</Button>
                             </Form>
                             {error && <Alert variant="danger" className="mt-3">{error}</Alert>}
                             {result && (
