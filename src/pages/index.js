@@ -1,4 +1,4 @@
-// index.js
+// src/pages/index.js
 
 import { Container, Row, Col } from 'react-bootstrap';
 import CenteredContainer from '../../components/CenteredContainer';

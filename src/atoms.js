@@ -1,4 +1,4 @@
-// atoms.js
+// src/atoms.js
 
 import { atom } from 'jotai';
 

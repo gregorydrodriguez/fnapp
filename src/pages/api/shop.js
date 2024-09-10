@@ -1,4 +1,4 @@
-// pages/api/shop.js
+// src/pages/api/shop.js
 
 export default async function handler(req, res) {
     const apiUrl = 'https://fortnite-api.com/v2/shop/br';

@@ -1,3 +1,24 @@
+This is a modest project, that is still in development, to simulate a full stack project. The application is primarily to search for stats of a fortnite player, but will be added other routes to display other techniques and capabilities of React/Next.js
+
+Front-End Aspects: React, React-Bootstrap, Next.js, CSS, Jotai
+Back-End Aspects: API Handling, Database Interaction (MongoDB), JWT
+Middleware Aspects: Custom middleware, error handling, Bcrypt
+
+## React/Next.js Utilization & Correlating Techniques
+- Page based routing: Adopted Next.js' page based routing, each page typically is responsible for it's own rendering
+- Reusable components such as stats which is a child component that is called within the player component to reduce redundancy
+- State management: Implementing useState for local states and Jotai for global state.
+- Side effects: Implementing useEffect across different routes, such as the shop route to fetch from a Fortnite API
+- Pagination: Implemented in the shop route via React-Bootstrap
+- Form Handling: Utilized React-Hook-Form for managing the users entries
+- Fetch: Used to retrieve data from APIs and converting it to json to display information
+- Dynamically Rendering Navbar: Contains a conditional to render specific content in regard to isAuthenticated atom
+- JWT: Creating a JWT token for the user when they log in through auth.js which will be required for API requests
+- Password Hashing: Using Bcrypt to hash a password to be stored in the database. Also used to hash the password during login for comparison
+- Database Interaction: The mongo.js file contains logic to interact with the database and defines functions to add and find a user
+- Custom Middleware: authenticated.js checks the validity of a JWT token
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

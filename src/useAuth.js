@@ -1,4 +1,4 @@
-// useAuth.js
+// src/useAuth.js
 
 import { useAtom } from 'jotai';
 import { userAtom, isAuthenticatedAtom } from './atoms';

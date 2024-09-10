@@ -1,4 +1,4 @@
-// pages/api/authenticated.js
+// src/pages/api/authenticated.js
 
 import jwt from 'jsonwebtoken';
 

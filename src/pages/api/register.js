@@ -1,4 +1,4 @@
-// pages/api/register.js
+// src/pages/api/register.js
 
 import { connect, registerUser } from "../../../mongo";
 

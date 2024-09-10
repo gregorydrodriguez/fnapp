@@ -1,4 +1,4 @@
-// pages/login.js
+// src/pages/login.js
 
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../useAuth';

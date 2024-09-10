@@ -1,4 +1,4 @@
-// pages/search.js
+// src/pages/search.js
 
 import { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';

@@ -1,4 +1,4 @@
-// pages/register.js
+// src/pages/register.js
 
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';

@@ -1,4 +1,4 @@
-// pages/api/search.js
+// src/pages/api/search.js
 
 export default async function handler(req, res) {
     const { username } = req.query;

@@ -1,4 +1,4 @@
-// pages/api/auth.js
+// src/pages/api/auth.js
 
 import jwt from 'jsonwebtoken';
 import { connect, findUserByUsername } from '../../../mongo';
