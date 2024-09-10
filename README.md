@@ -1,5 +1,8 @@
 This is a modest project, that is still in development, to simulate a full stack project. The application is primarily to search for stats of a fortnite player, but will be added other routes to display other techniques and capabilities of React/Next.js
 
+## Deployment URL
+https://fnapp.vercel.app/
+
 Front-End Aspects: React, React-Bootstrap, Next.js, CSS, Jotai
 Back-End Aspects: API Handling, Database Interaction (MongoDB), JWT
 Middleware Aspects: Custom middleware, error handling, Bcrypt
